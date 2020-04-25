@@ -1,0 +1,7 @@
+.card {
+  border: none;
+}
+.ui.statistics {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,7 @@
+.router-link-active {
+    background-color: rgb(241, 89, 119);
+    border-radius: 12px;
+    font-weight: 700;
+    zoom: 1.05;
+    color: white;
+}

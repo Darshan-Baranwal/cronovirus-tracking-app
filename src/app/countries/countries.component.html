@@ -1,0 +1,20 @@
+<div class="jumbotron bg-white text-center p-0 m-0">
+  <h1 class="display-4">Corona Covid-19 Tracker</h1>
+  <hr>
+
+
+<div class="mx-auto">
+  <div class="form-group col-lg-5 mx-auto">
+    <label for="country">Select Country</label>
+    <select name="country" id="country" class="form-control" [(ngModel)]="selectedValue">
+      <option [ngValue]="country" *ngFor="let country of countriesList">{{country.country}}</option>
+    </select>
+  </div>
+</div>
+<app-states-dashboard
+  [confirmed]="selectedValue?selectedValue.confirmed:0"
+  [active]="selectedValue?selectedValue.active:0"
+  [recovered]="selectedValue?selectedValue.recovered:0"
+  [deaths]="selectedValue?selectedValue.deaths:0"
+></app-states-dashboard>
+</div>
