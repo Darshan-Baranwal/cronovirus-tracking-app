@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
     this.pieChart = {
       chartType: 'PieChart',
       dataTable: dataTable,
-      options: {"Country": "Cases"},
+      options: {"Country": "Cases", height: 500, is3D: true,},
     };
     console.log(dataTable);
 
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
         ["Confirmed", this.totalConfirmed],
         ["Recovered", this.totalRecovered]
       ],
-      options: {"Global": "Cases"},
+      options: {"Global": "Cases",is3D: true,},
     }
   }
 }

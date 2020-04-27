@@ -9,6 +9,8 @@
 [recovered]="totalRecovered"
 [deaths]="totalDeaths"
 ></app-states-dashboard>
+<div class="home-page-charts">
+  <div><google-chart [data]="pieChart"></google-chart></div>
+  <div><google-chart [data]="pieChart2"></google-chart></div>
+</div>
 
-<google-chart [data]="pieChart"></google-chart>
-<google-chart [data]="pieChart2"></google-chart>
