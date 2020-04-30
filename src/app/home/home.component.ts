@@ -12,7 +12,8 @@ export class HomeComponent implements OnInit {
   graphWidth= 500;
   graphHeight = 500;
   selectedType: string;
-  @ViewChild('countryChart', {static: true}) countryChart
+  @ViewChild('countryChart', {static: true}) countryChart;
+  @ViewChild('globalDataChart', {static: true}) globalDataChart;
   constructor(private dataService: DataService) {}
   totalConfirmed = 0;
   totalActive = 0;
@@ -101,7 +102,7 @@ export class HomeComponent implements OnInit {
         is3D: true
       },
       height: this.graphHeight,
-      width: this.graphWidth
+      width: this.globalDataChart.nativeElement ? this.globalDataChart.nativeElement.offsetWidth : 500
     };
 
     this.chartForGlobaldata = {
@@ -117,7 +118,7 @@ export class HomeComponent implements OnInit {
         is3D: true
       },
       height: this.graphHeight,
-      width: this.graphWidth
+      width: this.globalDataChart.nativeElement ? this.globalDataChart.nativeElement.offsetWidth : 500
     };
 
   }

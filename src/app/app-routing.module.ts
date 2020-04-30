@@ -5,6 +5,7 @@ import { CountriesComponent } from './countries/countries.component';
 
 
 const routes: Routes = [
+  {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: "home", component: HomeComponent,},
   {path: "countries", component: CountriesComponent},
 ];
