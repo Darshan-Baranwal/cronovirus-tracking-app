@@ -5,3 +5,9 @@
     zoom: 1.05;
     color: white;
 }
+
+@media only screen and (max-width: 750px) {
+  .navbar-nav a {
+    text-align: center!important;
+  }
+}

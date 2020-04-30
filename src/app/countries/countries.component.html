@@ -1,20 +1,55 @@
-<div class="jumbotron bg-white text-center p-0 m-0">
-  <h1 class="display-4">Corona Covid-19 Tracker</h1>
-  <hr>
-
-
-<div class="mx-auto">
-  <div class="form-group col-lg-5 mx-auto">
-    <label for="country">Select Country</label>
-    <select name="country" id="country" class="form-control" [(ngModel)]="selectedValue">
-      <option [ngValue]="country" *ngFor="let country of countriesList">{{country.country}}</option>
-    </select>
+<div class="row">
+  <div class="col">
+    <div class="mx-auto">
+      <div class="form-group col-lg-5 mx-auto">
+        <label for="country">Select Country</label>
+        <select name="country" id="country" class="form-control" [(ngModel)]="selectedValue" (change)="selectedValueChange(selectedValue)">
+          <option [ngValue]="country" *ngFor="let country of countriesList">{{country.country}}</option>
+        </select>
+      </div>
+    </div>
   </div>
 </div>
-<app-states-dashboard
-  [confirmed]="selectedValue?selectedValue.confirmed:0"
-  [active]="selectedValue?selectedValue.active:0"
-  [recovered]="selectedValue?selectedValue.recovered:0"
-  [deaths]="selectedValue?selectedValue.deaths:0"
-></app-states-dashboard>
+<div class="">
+  <div class="col country-chart" #countryChart>
+    <google-chart
+      [title]="chartForCountry.title"
+      [type]="chartForCountry.type"
+      [data]="chartForCountry.data"
+      [columns]="chartForCountry.columns"
+      [options]="chartForCountry.options"
+      [width]="chartForCountry.width"
+      [height]="chartForCountry.height"></google-chart>
+  </div>
+  <div class="col">
+    <app-states-dashboard
+      [confirmed]="selectedValue?selectedValue.confirmed:0"
+      [active]="selectedValue?selectedValue.active:0"
+      [recovered]="selectedValue?selectedValue.recovered:0"
+      [deaths]="selectedValue?selectedValue.deaths:0"
+    ></app-states-dashboard>
+  </div>
 </div>
+
+  <div class="row">
+
+    <div class="col">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Sno.</th>
+          <th>Date</th>
+          <th>Cases</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor='let cs of countryData; index as i '>
+          <td>{{i+1}}</td>
+          <td>{{cs.date | date}}</td>
+          <td>{{cs.case}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>

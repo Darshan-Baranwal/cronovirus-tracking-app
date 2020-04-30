@@ -1,16 +1,76 @@
-<div class="jumbotron bg-white text-center p-0 m-0">
-    <h1 class="display-4">Corona Covid-19 Tracker</h1>
-    <hr>
-</div>
-
 <app-states-dashboard
 [confirmed]="totalConfirmed"
 [active]="totalActive"
 [recovered]="totalRecovered"
 [deaths]="totalDeaths"
 ></app-states-dashboard>
-<div class="home-page-charts">
-  <div><google-chart [data]="pieChart"></google-chart></div>
-  <div><google-chart [data]="pieChart2"></google-chart></div>
+<div class="category-selection">
+  <div class="ui form">
+    <div class="inline fields">
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="frequency" checked="checked" (change)="updateChart('confirmed')">
+          <label>Confirmed</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="frequency" (change)="updateChart('deaths')">
+          <label>Deaths</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="frequency" (change)="updateChart('recovered')">
+          <label>Recovered</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="frequency" (change)="updateChart('active')">
+          <label>Active</label>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="home-page-charts row">
+  <div class="col global-data-chart">
+    <google-chart
+                  [title]="chartForGlobaldata.title"
+                  [type]="chartForGlobaldata.type"
+                  [data]="chartForGlobaldata.data"
+                  [columns]="chartForGlobaldata.columns"
+                  [options]="chartForGlobaldata.options"
+                  [width]="chartForGlobaldata.width"
+                  [height]="chartForGlobaldata.height">
+    </google-chart>
+  </div>
+  <div class="col">
+    <google-chart
+      [title]="chartForCountriesData.title"
+      [type]="chartForCountriesData.type"
+      [data]="chartForCountriesData.data"
+      [columns]="chartForCountriesData.columns"
+      [options]="chartForCountriesData.options"
+      [width]="chartForCountriesData.width"
+      [height]="chartForCountriesData.height">
+
+    </google-chart>
+  </div>
+</div>
+<div class="row" #countryChart>
+  <div class="">
+    <google-chart
+      [title]="chartForType.title"
+      [type]="chartForType.type"
+      [data]="chartForType.data"
+      [columns]="chartForType.columns"
+      [options]="chartForType.options"
+      [width]="chartForType.widthValue"
+      [height]="chartForType.heightValue">
+
+    </google-chart>
+  </div>
+</div>

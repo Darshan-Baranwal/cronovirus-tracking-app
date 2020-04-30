@@ -1,3 +1,28 @@
-.home-page-charts {
+.home-page-charts{
+  margin: 0 8px 0 8px !important;
+}
+.home-page-charts .col{
+  max-width: 50%;
+  margin: 0 8px 0 8px !important;
+}
+.category-selection {
+  margin: 0 8px 0 8px !important;
+}
+.ui.form {
+  display: flex;
+  justify-content: space-around;
+}
+@media only screen and (max-width: 760px){
+  .home-page-charts .col{
+    max-width: 100%;
+    flex: 1;
+    margin: 0 8px 0 8px !important;
+  }
+  .card {
+    font-size: 8px;
+  }
+  .global-data-chart {
+    display: none;
+  }
 
 }

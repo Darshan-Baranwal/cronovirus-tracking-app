@@ -16,6 +16,9 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    font-size: 8px;
+    line-height: 0.3;
+    margin: 0 !important;
   }
   .ui.statistics {
     display: flex;
