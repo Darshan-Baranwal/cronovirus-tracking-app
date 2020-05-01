@@ -9,7 +9,7 @@ import {IGlobalData} from '../model/global-data';
 })
 export class HomeComponent implements OnInit {
 
-  graphWidth= 500;
+  graphWidth= 300;
   graphHeight = 500;
   selectedType: string;
   @ViewChild('countryChart', {static: true}) countryChart;
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.graphHeight = 500;
+    this.graphHeight = 300;
     if(event.target.innerWidth < 761){
       this.graphHeight = 300;
       this.graphWidth = event.target.innerWidth - 10;

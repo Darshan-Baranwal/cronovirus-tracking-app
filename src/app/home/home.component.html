@@ -4,6 +4,31 @@
 [recovered]="totalRecovered"
 [deaths]="totalDeaths"
 ></app-states-dashboard>
+<div class="home-page-charts row">
+  <div class="col global-data-chart" #globalDataChart>
+    <google-chart
+                  [title]="chartForGlobaldata.title"
+                  [type]="chartForGlobaldata.type"
+                  [data]="chartForGlobaldata.data"
+                  [columns]="chartForGlobaldata.columns"
+                  [options]="chartForGlobaldata.options"
+                  [width]="chartForGlobaldata.width"
+                  [height]="chartForGlobaldata.height">
+    </google-chart>
+  </div>
+  <div class="col">
+    <google-chart
+      [title]="chartForCountriesData.title"
+      [type]="chartForCountriesData.type"
+      [data]="chartForCountriesData.data"
+      [columns]="chartForCountriesData.columns"
+      [options]="chartForCountriesData.options"
+      [width]="chartForCountriesData.width"
+      [height]="chartForCountriesData.height">
+
+    </google-chart>
+  </div>
+</div>
 <div class="category-selection">
   <div class="ui form">
     <div class="inline fields">
@@ -32,32 +57,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="home-page-charts row">
-  <div class="col global-data-chart" #globalDataChart>
-    <google-chart
-                  [title]="chartForGlobaldata.title"
-                  [type]="chartForGlobaldata.type"
-                  [data]="chartForGlobaldata.data"
-                  [columns]="chartForGlobaldata.columns"
-                  [options]="chartForGlobaldata.options"
-                  [width]="chartForGlobaldata.width"
-                  [height]="chartForGlobaldata.height">
-    </google-chart>
-  </div>
-  <div class="col">
-    <google-chart
-      [title]="chartForCountriesData.title"
-      [type]="chartForCountriesData.type"
-      [data]="chartForCountriesData.data"
-      [columns]="chartForCountriesData.columns"
-      [options]="chartForCountriesData.options"
-      [width]="chartForCountriesData.width"
-      [height]="chartForCountriesData.height">
-
-    </google-chart>
   </div>
 </div>
 <div class="row" #countryChart>
