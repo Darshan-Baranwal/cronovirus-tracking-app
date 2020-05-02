@@ -1,0 +1,28 @@
+<h2 class="text-center">Compare COVID Cases Rates</h2>
+<div class="row" style="margin-left: 8px; margin-right: 8px">
+  <div class="form-group col-lg-5 mx-auto">
+    <select name="country" id="country1" class="form-control" [(ngModel)]="selectedValue1"
+            (change)="selectedValueChange(selectedValue1)">
+      <option [ngValue]="country" *ngFor="let country of countriesList1">{{country.country}}</option>
+    </select>
+  </div>
+  <div class="form-group col-lg-5 mx-auto">
+    <select name="country" id="country2" class="form-control" [(ngModel)]="selectedValue2"
+            (change)="selectedValueChange(selectedValue1)">
+      <option [ngValue]="country" *ngFor="let country of countriesList2">
+        {{country.country}}
+      </option>
+    </select>
+  </div>
+</div>
+<div class="comparison-chart " #countryChart>
+  <google-chart
+    [title]="comparisonChart.title"
+    [type]="comparisonChart.type"
+    [data]="comparisonChart.data"
+    [columns]="comparisonChart.columns"
+    [options]="comparisonChart.options"
+    [width]="comparisonChart.width"
+    [height]="comparisonChart.height">
+  </google-chart>
+</div>

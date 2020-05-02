@@ -10,6 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { StatesDashboardComponent } from './states-dashboard/states-dashboard.component';
 import {FormsModule} from '@angular/forms';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { ComparisonComponent } from './comparison/comparison.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
     HomeComponent,
     CountriesComponent,
     StatesDashboardComponent,
+    ComparisonComponent,
   ],
     imports: [
         BrowserModule,

@@ -2,6 +2,7 @@ import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../data.service';
 import {IGlobalData} from '../model/global-data';
 import {DatewiseData} from '../model/datewise-data';
+import {merge} from 'rxjs';
 
 @Component({
   selector: 'app-countries',
@@ -37,6 +38,13 @@ countriesList: IGlobalData[];
         this.selectedValue = this.countriesList[0];
       }
     );
+
+ /*   merge(this.dataService.getGlobalData(), this.dataService.getDateWiseDate()).subscribe(([d1, d2]) => {
+      this.countriesData = d1;
+      console.log(d1);
+      this.countryData = d2.US;
+      this.updateChart();
+    });*/
   }
   updateChart() {
     this.dataTable = [];
@@ -50,7 +58,7 @@ countriesList: IGlobalData[];
       columns : ['Date' , 'Cases'],
       options : {
         height: this.graphHeight,
-        width: this.countryChart.nativeElement.offsetWidth,
+        width: this.countryChart.nativeElement.offsetWidth - 10,
         animation: {
           duration: 1000,
           easing: 'out',
@@ -58,7 +66,7 @@ countriesList: IGlobalData[];
         is3D: true
       },
       height: this.graphHeight,
-      width: this.countryChart.nativeElement.offsetWidth,
+      width: this.countryChart.nativeElement.offsetWidth - 10,
     };
   }
 
